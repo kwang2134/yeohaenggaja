@@ -23,14 +23,17 @@ public class Country extends BaseEntity {
 
     private String visaRequirement; // 비자 유무
 
+    private String flagImageKey;    // 국기 이미지
+
     @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<TravelSpot> travelSpots = new ArrayList<>();
 
     @Builder
-    public Country(String name, String region, String description, String visaRequirement) {
+    public Country(String name, String region, String description, String visaRequirement, String flagImageKey) {
         this.name = name;
         this.region = region;
         this.description = description;
         this.visaRequirement = visaRequirement;
+        this.flagImageKey = flagImageKey;
     }
 }
