@@ -2,11 +2,11 @@ package com.yg.yeohaenggaja.dto;
 
 import java.util.List;
 
-public record RecommendVacationSpotResponse(
+public record RecommendTravelSpotResponse(
         String name,
         String region,
         String description,
         String visaRequirement,
         String flagImageKey,
-        List<VacationSpotSimpleResponse> spots
+        List<TravelSpotSimpleResponse> spots
 ) {}

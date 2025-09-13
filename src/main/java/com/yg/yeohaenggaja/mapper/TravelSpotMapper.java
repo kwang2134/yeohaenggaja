@@ -3,8 +3,8 @@ package com.yg.yeohaenggaja.mapper;
 import com.yg.yeohaenggaja.domain.Country;
 import com.yg.yeohaenggaja.domain.TravelSpot;
 import com.yg.yeohaenggaja.domain.TravelSpotImage;
-import com.yg.yeohaenggaja.dto.RecommendVacationSpotResponse;
-import com.yg.yeohaenggaja.dto.VacationSpotSimpleResponse;
+import com.yg.yeohaenggaja.dto.RecommendTravelSpotResponse;
+import com.yg.yeohaenggaja.dto.TravelSpotSimpleResponse;
 
 import java.util.List;
 import java.util.Map;
@@ -12,19 +12,19 @@ import java.util.Map;
 public class TravelSpotMapper {
 
     // 추천 결과 매핑
-    public static List<RecommendVacationSpotResponse> toRecommendVacationSpotResponse(Map<Country, List<TravelSpot>> spotMap) {
+    public static List<RecommendTravelSpotResponse> toRecommendVacationSpotResponse(Map<Country, List<TravelSpot>> spotMap) {
         return spotMap.entrySet().stream()
                 .map(entry -> toRecommendVacationSpotResponse(entry.getKey(), entry.getValue()))
                 .toList();
     }
 
     // 추천 결과 매핑 - spotSimpleResponse 제외
-    private static RecommendVacationSpotResponse toRecommendVacationSpotResponse(Country country, List<TravelSpot> spots) {
-        List<VacationSpotSimpleResponse> spotSimpleResponses = spots.stream()
+    private static RecommendTravelSpotResponse toRecommendVacationSpotResponse(Country country, List<TravelSpot> spots) {
+        List<TravelSpotSimpleResponse> spotSimpleResponses = spots.stream()
                 .map(TravelSpotMapper::toVacationSpotSimpleResponse)
                 .toList();
 
-        return new RecommendVacationSpotResponse(
+        return new RecommendTravelSpotResponse(
                 country.getName(),
                 country.getRegion(),
                 country.getDescription(),
@@ -35,12 +35,12 @@ public class TravelSpotMapper {
     }
 
     // 추천 결과 매핑 - spotSimpleResponse 매핑
-    private static VacationSpotSimpleResponse toVacationSpotSimpleResponse(TravelSpot spot) {
+    private static TravelSpotSimpleResponse toVacationSpotSimpleResponse(TravelSpot spot) {
         List<String> imageKeys = spot.getImages().stream()
                 .map(TravelSpotImage::getImageKey)
                 .toList();
 
-        return new VacationSpotSimpleResponse(
+        return new TravelSpotSimpleResponse(
                 spot.getId(),
                 spot.getCityName(),
                 spot.getHighlight(),
