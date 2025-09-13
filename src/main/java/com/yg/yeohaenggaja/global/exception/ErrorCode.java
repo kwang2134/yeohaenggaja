@@ -10,7 +10,10 @@ public enum ErrorCode {
     BAD_REQUEST(HttpStatus.BAD_REQUEST, "유효하지 않은 요청입니다."),
 
     // 추천 로직
-    MISSING_FILTER_CONDITIONS(HttpStatus.BAD_REQUEST, "추천을 위한 조건이 최소 하나는 필요합니다.");
+    MISSING_FILTER_CONDITIONS(HttpStatus.BAD_REQUEST, "추천을 위한 조건이 최소 하나는 필요합니다."),
+
+    // 여행지
+    TRAVELSPOT_NOT_FOUND(HttpStatus.NOT_FOUND, "해당 여행지가 존재하지 않습니다.");
 
     private final HttpStatus httpStatus;
     private final String message;
