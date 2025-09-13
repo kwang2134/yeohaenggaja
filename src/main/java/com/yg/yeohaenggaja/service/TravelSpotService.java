@@ -19,7 +19,7 @@ public class TravelSpotService {
 
     public List<RecommendVacationSpotResponse> getRecommendVacationSpots(Integer days, Boolean spring, Boolean summer, Boolean fall, Boolean winter) {
         // 선택지에 맞는 여행지 조회
-        List<TravelSpot> travelSpots = travelSpotRepository.findByDaysAndSeasons(days, spring, summer, fall, winter);
+        List<TravelSpot> travelSpots = travelSpotRepository.searchByDaysAndSeasons(days, spring, summer, fall, winter);
 
         // 나라를 기준으로 매핑
         Map<Country, List<TravelSpot>> spotMap = travelSpots.stream()

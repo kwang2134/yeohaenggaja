@@ -2,9 +2,8 @@ package com.yg.yeohaenggaja.infrastructure.querydsl;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.yg.yeohaenggaja.domain.QTravelSpot;
 import com.yg.yeohaenggaja.domain.TravelSpot;
-import com.yg.yeohaenggaja.repository.TravelSpotQueryRepository;
+import com.yg.yeohaenggaja.repository.TravelSpotRepositoryCustom;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -15,13 +14,13 @@ import static com.yg.yeohaenggaja.domain.QTravelSpot.*;
 
 @Repository
 @RequiredArgsConstructor
-public class TravelSpotQueryRepositoryImpl implements TravelSpotQueryRepository {
+public class TravelSpotRepositoryImpl implements TravelSpotRepositoryCustom {
 
     private final EntityManager em;
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public List<TravelSpot> findByDaysAndSeasons(Integer days, Boolean spring, Boolean summer, Boolean fall, Boolean winter) {
+    public List<TravelSpot> searchByDaysAndSeasons(Integer days, Boolean spring, Boolean summer, Boolean fall, Boolean winter) {
         BooleanBuilder builder = new BooleanBuilder();
 
         if (days != null) {
