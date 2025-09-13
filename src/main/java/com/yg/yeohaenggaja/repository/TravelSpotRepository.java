@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface TravelSpotRepository extends JpaRepository<TravelSpot, Long> {
+public interface TravelSpotRepository extends JpaRepository<TravelSpot, Long>, TravelSpotQueryRepository {
 
-    @Query("SELECT t FROM TravelSpot t JOIN FETCH t.country c LEFT JOIN FETCH t.images i WHERE t.vacationDays = :days")
-    List<TravelSpot> findByVacationDays(int vacationDays);
 }
