@@ -12,8 +12,7 @@ import java.util.List;
 public class Country extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;                // PK
+    private String id;              // PK - 국가 코드 (ex KR)
 
     private String name;            // 국가명
 

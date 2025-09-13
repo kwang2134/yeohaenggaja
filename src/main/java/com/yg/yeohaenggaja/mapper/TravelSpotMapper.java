@@ -27,6 +27,7 @@ public class TravelSpotMapper {
                 .toList();
 
         return new RecommendTravelSpotResponse(
+                country.getId(),
                 country.getName(),
                 country.getRegion(),
                 country.getDescription(),
