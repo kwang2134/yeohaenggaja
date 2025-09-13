@@ -36,9 +36,7 @@ public class TravelSpotMapper {
 
     // 추천 결과 매핑 - spotSimpleResponse 매핑
     private static TravelSpotSimpleResponse toVacationSpotSimpleResponse(TravelSpot spot) {
-        List<String> imageKeys = spot.getImages().stream()
-                .map(TravelSpotImage::getImageKey)
-                .toList();
+        String imageKeys = spot.getImages().getFirst().getImageKey();
 
         return new TravelSpotSimpleResponse(
                 spot.getId(),

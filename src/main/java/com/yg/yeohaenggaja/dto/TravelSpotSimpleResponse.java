@@ -6,6 +6,6 @@ public record TravelSpotSimpleResponse(
         Long id,
         String cityName,
         String highlight,
-        List<String> images
+        String image
 ) {
 }
