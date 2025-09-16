@@ -2,6 +2,7 @@ package com.yg.yeohaenggaja.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,7 @@ public class TravelSpot extends BaseEntity {
 
     private boolean winter;       // 추천 여부 (겨울)
 
+    @BatchSize(size = 10)
     @OneToMany(mappedBy = "travelSpot", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<TravelSpotImage> images = new ArrayList<>();
 
