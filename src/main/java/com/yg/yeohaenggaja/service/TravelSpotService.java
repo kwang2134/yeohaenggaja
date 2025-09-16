@@ -35,7 +35,7 @@ public class TravelSpotService {
     @Transactional(readOnly = true)
     public TravelSpotDetailResponse getTravelSpotDetail(Long travelSpotId) {
         TravelSpot travelSpot = travelSpotRepository.findWithImagesById(travelSpotId)
-                .orElseThrow(() -> ErrorCode.TRAVELSPOT_NOT_FOUND.domainException(travelSpotId + "존재하지 않는 여행지입니다."));
+                .orElseThrow(() -> ErrorCode.TRAVELSPOT_NOT_FOUND.domainException("존재하지 않는 여행지 ID : " + travelSpotId));
 
         return TravelSpotMapper.toTravelSpotDetailResponse(travelSpot);
     }
