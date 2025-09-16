@@ -16,7 +16,7 @@ public class Country extends BaseEntity {
 
     private String name;            // 국가명
 
-    private String region;          // 지역(대륙)
+    private String continent;          // 지역(대륙)
 
     private String description;     // 국가 간략 설명
 
@@ -28,9 +28,9 @@ public class Country extends BaseEntity {
     private List<TravelSpot> travelSpots = new ArrayList<>();
 
     @Builder
-    public Country(String name, String region, String description, String visaRequirement, String flagImageKey) {
+    public Country(String name, String continent, String description, String visaRequirement, String flagImageKey) {
         this.name = name;
-        this.region = region;
+        this.continent = continent;
         this.description = description;
         this.visaRequirement = visaRequirement;
         this.flagImageKey = flagImageKey;

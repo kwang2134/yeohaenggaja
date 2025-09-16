@@ -5,6 +5,7 @@ import java.util.List;
 public record TravelSpotDetailResponse(
         Long id,
         String cityName,
+        String regionName,
         int vacationDays,
         String description,
         String highlight,

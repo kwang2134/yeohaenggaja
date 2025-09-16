@@ -21,6 +21,10 @@ public class TravelSpot extends BaseEntity {
 
     private String cityName;        // 도시이름
 
+    private String regionCode;      // 행정 구역 코드
+
+    private String regionName;      // 행정 구역 이름
+
     private int vacationDays;    // 적정 휴가 기간
 
     private String description;     // 여행지 설명
@@ -43,9 +47,11 @@ public class TravelSpot extends BaseEntity {
     private List<TravelSpotImage> images = new ArrayList<>();
 
     @Builder
-    public TravelSpot(String cityName, Country country, int vacationDays, String description, String highlight, String flightTime, String averageCost, boolean spring, boolean summer, boolean fall, boolean winter) {
+    public TravelSpot(String cityName, Country country, String regionCode, String regionName, int vacationDays, String description, String highlight, String flightTime, String averageCost, boolean spring, boolean summer, boolean fall, boolean winter) {
         this.cityName = cityName;
         this.country = country;
+        this.regionCode = regionCode;
+        this.regionName = regionName;
         this.vacationDays = vacationDays;
         this.description = description;
         this.highlight = highlight;

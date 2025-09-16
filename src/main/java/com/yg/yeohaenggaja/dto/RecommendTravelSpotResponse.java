@@ -5,7 +5,7 @@ import java.util.List;
 public record RecommendTravelSpotResponse(
         String id,
         String name,
-        String region,
+        String continent,
         String description,
         String visaRequirement,
         String flagImageKey,

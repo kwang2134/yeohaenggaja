@@ -29,7 +29,7 @@ public class TravelSpotMapper {
         return new RecommendTravelSpotResponse(
                 country.getId(),
                 country.getName(),
-                country.getRegion(),
+                country.getContinent(),
                 country.getDescription(),
                 country.getVisaRequirement(),
                 country.getFlagImageKey(),
@@ -75,6 +75,7 @@ public class TravelSpotMapper {
         return new TravelSpotDetailResponse(
                 travelSpot.getId(),
                 travelSpot.getCityName(),
+                travelSpot.getRegionName(),
                 travelSpot.getVacationDays(),
                 travelSpot.getDescription(),
                 travelSpot.getHighlight(),
