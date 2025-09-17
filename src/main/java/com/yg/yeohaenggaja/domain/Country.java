@@ -28,7 +28,8 @@ public class Country extends BaseEntity {
     private List<TravelSpot> travelSpots = new ArrayList<>();
 
     @Builder
-    public Country(String name, String continent, String description, String visaRequirement, String flagImageKey) {
+    public Country(String id, String name, String continent, String description, String visaRequirement, String flagImageKey) {
+        this.id = id;
         this.name = name;
         this.continent = continent;
         this.description = description;
