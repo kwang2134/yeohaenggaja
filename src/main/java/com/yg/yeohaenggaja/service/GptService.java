@@ -6,6 +6,7 @@ import com.yg.yeohaenggaja.repository.GptRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 
@@ -16,6 +17,7 @@ public class GptService {
     private final OpenAiChatModel chatModel;
     private final GptRepository gptRepository;
 
+    @Transactional(readOnly = true)
     public String askGpt(GptRecommendRequest request) {
         Prompt travel = gptRepository.findByName("Travel").getFirst();
 
